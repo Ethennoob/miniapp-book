@@ -4,6 +4,9 @@
   <view class="navi">
     <button class="add-button" size="mini" type="primary" bindtap="addItem">添加收支</button>
   </view>
+  <block wx:if="{{items.length == 0}}">
+    {{str}}
+  </block>
   <block wx:for="{{items}}">
     <view class="news-item" data-id="{{item._id}}" bindtap="itemTap">
       <view class="news-text">
@@ -16,6 +19,7 @@
       </view>
     </view>
   </block>
+  
 </view>
 
 <loading hidden="{{loadingHidden}}">

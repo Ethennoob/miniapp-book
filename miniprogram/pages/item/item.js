@@ -51,15 +51,17 @@ Page({
       return
     }
 
+    const db = wx.cloud.database()
+
     // 本条数据打包成json
     var record = {
       title: this.data.title,
       cate: this.data.cate,
       account: this.data.account,
-      date: this.data.date
+      date: this.data.date,
+      created_at: db.serverDate()
     }
-
-    const db = wx.cloud.database()
+    
     // 查询当前账本记录
     db.collection('test').add({
       data: record,

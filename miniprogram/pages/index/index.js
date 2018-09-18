@@ -5,7 +5,8 @@ Page({
   data: {
     //    motto: 'Hello World',
     items: [],
-    loadingHidden: true
+    loadingHidden: true,
+    str: ''
   },
   addItem: function () {
     wx.navigateTo({
@@ -33,12 +34,17 @@ Page({
     // 查询当前用户所有的 counters
     db.collection('test').where({
       _openid: that.data.openid
-    }).orderBy('date', 'desc')
+    }).orderBy('created_at', 'desc')
     .get({
       success: res => {
+        var str = '';
+        if (res.data.length == 0){
+          str = '开始记录吧😄';
+        }
         that.setData({
           'items': res.data,
-          'loadingHidden': true
+          'loadingHidden': true,
+          'str': str
         });
         console.log('[数据库] [查询记录] 成功: ', res)
       },
