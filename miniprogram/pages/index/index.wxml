@@ -2,7 +2,16 @@
 
 <view class="container news-list">
   <view class="navi">
+    <text>收入:{{income}},支出:{{expand}},总计:<text class='{{numclass}}'>{{totol}}</text></text>
     <button class="add-button" size="mini" type="primary" bindtap="addItem">添加收支</button>
+  </view>
+  <!-- 时间选择 -->
+  <view class="date-select">
+    <picker mode="date" value="{{date}}" start="2015-09" end="{{nowdate}}" fields="month" bindchange="bindDateChange">
+      <view class="date-title">
+        {{date}}
+      </view>
+    </picker>
   </view>
   <block wx:if="{{items.length == 0}}">
     {{str}}
@@ -19,7 +28,7 @@
       </view>
     </view>
   </block>
-  
+
 </view>
 
 <loading hidden="{{loadingHidden}}">

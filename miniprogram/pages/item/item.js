@@ -143,7 +143,18 @@ Page({
     //    获取当前日期
     var date = new Date();
     //    格式化日期为"YYYY-mm-dd"
-    var dateStr = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+
+    var mouth = date.getMonth() + 1;
+    if (mouth.toString().length < 2){
+      mouth = '0' + mouth;
+    }
+
+    var day = date.getDate();
+    if (day.toString().length < 2) {
+      day = '0' + day;
+    }
+    
+    var dateStr = date.getFullYear() + "-" + (mouth) + "-" + day;
     //    存回data，以渲染到页面
     this.setData({
       date: dateStr

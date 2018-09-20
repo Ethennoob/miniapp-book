@@ -53,3 +53,13 @@
 .sign-green {
   color:green;
 }
+
+.date-select {
+  color: #ccc;
+  width: 100%;
+}
+
+.date-title {
+  float: left;
+  margin: 20rpx 10rpx;
+}
