@@ -5,7 +5,7 @@ Page({
   data: {
     //    motto: 'Hello World',
     items: [],
-    loadingHidden: true,
+    //loadingHidden: true,
     str: '',
     income: '-',
     expend: '-',
@@ -21,9 +21,9 @@ Page({
   },
   // 使用onShow而不使用onLoad，使得添加返回后自刷新
   onShow: function () {
-    this.setData({
-      loadingHidden: false
-    });
+    // this.setData({
+    //   //loadingHidden: false
+    // });
     var that = this
 
     that.getList();
@@ -61,7 +61,7 @@ Page({
   //获取账单列表
   getList: function(mouth) {
     var that = this;
-
+    wx.showLoading();
     if (mouth == undefined){
       var dateStr = this.initDate();
     }else{
@@ -118,13 +118,14 @@ Page({
         
         that.setData({
           'items': res.data,
-          'loadingHidden': true,
+          //'loadingHidden': true,
           'str': str,
           'income': income,
           'expand': expand,
           'totol': totol,
           'numclass': numclass
         });
+        wx.hideLoading();
         console.log('[数据库] [查询记录] 成功: ', res)
       },
       fail: err => {
