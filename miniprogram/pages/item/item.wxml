@@ -21,7 +21,7 @@
     </view>
     <view class="section">
         <view class="section__title">金额</view>
-        <input bindinput="bindAccountInput" type="number" value="{{account}}" placeholder="请输入数字，不加正负号"/>
+        <input bindinput="bindAccountInput" type="digit" value="{{account}}" placeholder="请输入数字，不加正负号"/>
     </view>
     <view class="section">
         <picker mode="date" value="{{date}}" start="2015-09-01" end="{{date}}" bindchange="bindDateChange">
