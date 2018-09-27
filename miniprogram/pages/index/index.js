@@ -88,9 +88,9 @@ Page({
           //计算统计数据
           for (var i = res.data.length - 1; i >= 0; i--) {
             if (res.data[i].cate == '+'){
-              income += parseInt(res.data[i].account);
+              income += res.data[i].account * 100;
             }else{
-              expand += parseInt(res.data[i].account);
+              expand += res.data[i].account * 100;
             }
             
           }
@@ -100,10 +100,14 @@ Page({
 
         if (income == 0){
           income = '-';
+        }else{
+          income = income/100;
         }
 
         if (expand == 0) {
           expand = '-';
+        }else{
+          expand = expand / 100;
         }
 
         
@@ -113,7 +117,9 @@ Page({
         }
 
         if (totol == 0){
-          expand = '-';
+          totol = '-';
+        }else{
+          totol = totol / 100;
         }
         
         that.setData({
